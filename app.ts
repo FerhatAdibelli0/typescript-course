@@ -122,24 +122,30 @@
 
 class Department {
   name: string;
-  age: number;
+  employees: string[] = [];
 
-  constructor(n: string, a: number) {
+  constructor(n: string) {
     this.name = n;
-    this.age = a;
   }
 
   describe(this: Department) {
-    console.log("Department Name: " + this.name + "Age is :" + this.age);
+    console.log("Department Name: " + this.name);
+  }
+
+  addEmployess(employee: string) {
+    this.employees.push(employee);
   }
 }
 
-const test = new Department("Accounting", 25);
+const test = new Department("Accounting");
 
-const Diftesting = {
-  name: "FERHAT",
-  age: 89,
-  describe: test.describe,
-};
+// const Diftesting = {
+//   name: "FERHAT",
+//   describe: test.describe,
+// };
 
-Diftesting.describe();
+test.describe();
+test.addEmployess("Ferhat");
+test.addEmployess("Adibelli");
+console.log(test.employees.length);
+console.log(test.employees);
