@@ -109,13 +109,24 @@
 // let res = Ferhat(person);
 // console.log(res)
 
-function Ferhat(a: number) {
-  return a;
+// function Ferhat(a: number) {
+//   return a;
+// }
+
+// function Add(num: number, num2: number) {
+//   return Ferhat(num + num2);
+// }
+
+// let result = Add(36, 89);
+// console.log(result);
+
+class Department {
+  name: string;
+
+  constructor(n: string) {
+    this.name = n;
+  }
 }
 
-function Add(num: number, num2: number) {
-  return Ferhat(num + num2);
-}
-
-let result = Add(12, 25);
-console.log(result);
+const test=new Department("Accounting")
+console.log(test)

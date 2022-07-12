@@ -1,3 +1,4 @@
+"use strict";
 // let a:number;
 // let b:string;
 // a = 45;
@@ -87,11 +88,18 @@
 // }
 // let res = Ferhat(person);
 // console.log(res)
-function Ferhat(a) {
-    return a;
+// function Ferhat(a: number) {
+//   return a;
+// }
+// function Add(num: number, num2: number) {
+//   return Ferhat(num + num2);
+// }
+// let result = Add(36, 89);
+// console.log(result);
+class Department {
+    constructor(n) {
+        this.name = n;
+    }
 }
-function Add(num, num2) {
-    return Ferhat(num + num2);
-}
-var result = Add(12, 25);
-console.log(result);
+const test = new Department("Accounting");
+console.log(test);
