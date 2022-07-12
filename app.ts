@@ -121,15 +121,17 @@
 // console.log(result);
 
 class Department {
-  name: string;
+  // id: string;
+  // name: string;
   private employees: string[] = [];
 
-  constructor(n: string) {
-    this.name = n;
+  constructor(private id: string, public name: string) {
+    // this.id = id;
+    // this.name = n;
   }
 
   describe(this: Department) {
-    console.log("Department Name: " + this.name);
+    console.log(`Department ID: ${this.id} -- Name: ${this.name}`);
   }
 
   addEmployess(employee: string) {
@@ -142,16 +144,16 @@ class Department {
   }
 }
 
-const test = new Department("Accounting");
+const test = new Department("D1", "Accounting");
 
 // const Diftesting = {
 //   name: "FERHAT",
 //   describe: test.describe,
 // };
 
-test.name="FERHAT"  // I reach name property from outside because it is public
+// test.name = "FERHAT"; // I reach name property from outside because it is public
 test.describe();
 test.addEmployess("Ferhat");
 test.addEmployess("Adibelli");
-test.printEmployeesInformation()
+test.printEmployeesInformation();
 // test.employees[2] = "Test"; // Normally we dont want to react this property from outside so we use private keyword

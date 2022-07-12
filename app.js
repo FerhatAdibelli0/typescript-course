@@ -97,12 +97,17 @@
 // let result = Add(36, 89);
 // console.log(result);
 class Department {
-    constructor(n) {
+    constructor(id, name) {
+        this.id = id;
+        this.name = name;
+        // id: string;
+        // name: string;
         this.employees = [];
-        this.name = n;
+        // this.id = id;
+        // this.name = n;
     }
     describe() {
-        console.log("Department Name: " + this.name);
+        console.log(`Department ID: ${this.id} -- Name: ${this.name}`);
     }
     addEmployess(employee) {
         this.employees.push(employee);
@@ -112,12 +117,12 @@ class Department {
         console.log(this.employees);
     }
 }
-const test = new Department("Accounting");
+const test = new Department("D1", "Accounting");
 // const Diftesting = {
 //   name: "FERHAT",
 //   describe: test.describe,
 // };
-test.name = "FERHAT"; // I reach name property from outside because it is public
+// test.name = "FERHAT"; // I reach name property from outside because it is public
 test.describe();
 test.addEmployess("Ferhat");
 test.addEmployess("Adibelli");
