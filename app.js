@@ -104,12 +104,13 @@ class Department {
         // name: string;
         this.employees = [];
         // this.id = id;
-        // this.name = n;
+        // this.name = name;
     }
     describe() {
         console.log(`Department ID: ${this.id} -- Name: ${this.name}`);
     }
     addEmployess(employee) {
+        // this.id="ID2" // You doesnt change it because it is readonly
         this.employees.push(employee);
     }
     printEmployeesInformation() {

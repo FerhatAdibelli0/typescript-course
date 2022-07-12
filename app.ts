@@ -125,9 +125,9 @@ class Department {
   // name: string;
   private employees: string[] = [];
 
-  constructor(private id: string, public name: string) {
+  constructor(private readonly id: string, public name: string) {
     // this.id = id;
-    // this.name = n;
+    // this.name = name;
   }
 
   describe(this: Department) {
@@ -135,6 +135,7 @@ class Department {
   }
 
   addEmployess(employee: string) {
+    // this.id="ID2" // You doesnt change it because it is readonly
     this.employees.push(employee);
   }
 
