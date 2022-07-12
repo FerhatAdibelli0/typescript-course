@@ -145,7 +145,29 @@ class Department {
   }
 }
 
-const test = new Department("D1", "Accounting");
+class ITDepartment extends Department {
+  constructor(id: string, private admins: string[]) {
+    super(id, "ITTech");
+  }
+}
+
+const IT = new ITDepartment("D2", ["Ferhat"]);
+
+class accountingDepartment extends Department {
+  constructor(id: string, private reports: string[]) {
+    super(id, "AccountingDep");
+  }
+
+  addReport(text: string) {
+    this.reports.push(text);
+  }
+
+  getReport() {
+    console.log(this.reports);
+  }
+}
+
+const AccountingRep = new accountingDepartment("D3", []);
 
 // const Diftesting = {
 //   name: "FERHAT",
@@ -153,8 +175,11 @@ const test = new Department("D1", "Accounting");
 // };
 
 // test.name = "FERHAT"; // I reach name property from outside because it is public
-test.describe();
-test.addEmployess("Ferhat");
-test.addEmployess("Adibelli");
-test.printEmployeesInformation();
-// test.employees[2] = "Test"; // Normally we dont want to react this property from outside so we use private keyword
+IT.describe();
+IT.addEmployess("Ferhat");
+IT.addEmployess("Adibelli");
+IT.printEmployeesInformation();
+console.log(AccountingRep);
+AccountingRep.addReport("There is something wrong");
+AccountingRep.getReport(); 
+// IT.employees[2] = "Test"; // Normally we dont want to react this property from outside so we use private keyword
