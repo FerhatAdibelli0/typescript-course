@@ -97,9 +97,18 @@
 // let result = Add(36, 89);
 // console.log(result);
 class Department {
-    constructor(n) {
+    constructor(n, a) {
         this.name = n;
+        this.age = a;
+    }
+    describe() {
+        console.log("Department Name: " + this.name + "Age is :" + this.age);
     }
 }
-const test = new Department("Accounting");
-console.log(test);
+const test = new Department("Accounting", 25);
+const Diftesting = {
+    name: "FERHAT",
+    age: 89,
+    describe: test.describe,
+};
+Diftesting.describe();

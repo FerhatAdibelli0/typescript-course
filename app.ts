@@ -122,11 +122,24 @@
 
 class Department {
   name: string;
+  age: number;
 
-  constructor(n: string) {
+  constructor(n: string, a: number) {
     this.name = n;
+    this.age = a;
+  }
+
+  describe(this: Department) {
+    console.log("Department Name: " + this.name + "Age is :" + this.age);
   }
 }
 
-const test=new Department("Accounting")
-console.log(test)
+const test = new Department("Accounting", 25);
+
+const Diftesting = {
+  name: "FERHAT",
+  age: 89,
+  describe: test.describe,
+};
+
+Diftesting.describe();
