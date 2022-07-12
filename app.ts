@@ -122,7 +122,7 @@
 
 class Department {
   name: string;
-  employees: string[] = [];
+  private employees: string[] = [];
 
   constructor(n: string) {
     this.name = n;
@@ -135,6 +135,11 @@ class Department {
   addEmployess(employee: string) {
     this.employees.push(employee);
   }
+
+  printEmployeesInformation() {
+    console.log(this.employees.length);
+    console.log(this.employees);
+  }
 }
 
 const test = new Department("Accounting");
@@ -144,8 +149,9 @@ const test = new Department("Accounting");
 //   describe: test.describe,
 // };
 
+test.name="FERHAT"  // I reach name property from outside because it is public
 test.describe();
 test.addEmployess("Ferhat");
 test.addEmployess("Adibelli");
-console.log(test.employees.length);
-console.log(test.employees);
+test.printEmployeesInformation()
+// test.employees[2] = "Test"; // Normally we dont want to react this property from outside so we use private keyword
