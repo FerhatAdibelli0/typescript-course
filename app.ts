@@ -57,7 +57,6 @@ class Truck {
   define() {
     console.log("defining Truck...");
   }
-
   loading(amount: number) {
     console.log("Driving Truck loading " + amount);
   }
@@ -75,3 +74,32 @@ const v1 = new Car();
 const v2 = new Truck();
 
 Vehicle(v2);
+
+// Discriminated Unions
+
+interface Bird {
+  type: "bird"; // literal type
+  flyingSpeed: number;
+}
+
+interface Horse {
+  type: "horse";
+  runningSpeed: number;
+}
+
+type Animal = Horse | Bird;
+
+function findRightAnimal(animal: Animal) {
+  let speed;
+  switch (animal.type) {
+    case "bird":
+      speed = animal.flyingSpeed;
+      break;
+    case "horse":
+      speed = animal.runningSpeed;
+      break;
+  }
+  console.log("Moving speed at :" + speed);
+}
+
+findRightAnimal({ type: "bird", flyingSpeed: 152 });

@@ -48,3 +48,16 @@ function Vehicle(vec) {
 const v1 = new Car();
 const v2 = new Truck();
 Vehicle(v2);
+function findRightAnimal(animal) {
+    let speed;
+    switch (animal.type) {
+        case "bird":
+            speed = animal.flyingSpeed;
+            break;
+        case "horse":
+            speed = animal.runningSpeed;
+            break;
+    }
+    console.log("Moving speed at :" + speed);
+}
+findRightAnimal({ type: "bird", flyingSpeed: 152 });
