@@ -1,5 +1,8 @@
-interface Grettable {
-   readonly name: string;
+interface Named {
+  readonly name: string;
+}
+// You can extends interfaces not just restricted one but two or more
+interface Grettable extends Named {
   gretting(phrase: string): void;
 }
 
