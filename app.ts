@@ -120,12 +120,12 @@
 // let result = Add(36, 89);
 // console.log(result);
 
-class Department {
+abstract class Department {
   // id: string;
   // name: string;
   protected employees: string[] = []; // Protected is used instead of private to make this property inherit from base Class to subclasses
   static ficalYear = 2022;
-  constructor(private readonly id: string, public name: string) {
+  constructor(protected readonly id: string, public name: string) {
     // this.id = id;
     // this.name = name;
   }
@@ -134,9 +134,7 @@ class Department {
     return { msg: message };
   }
 
-  describe(this: Department) {
-    console.log(`Department ID: ${this.id} -- Name: ${this.name}`);
-  }
+  abstract describe(this: Department): void;
 
   addEmployess(employee: string) {
     // this.id="ID2" // You doesnt change it because it is readonly
@@ -153,9 +151,14 @@ class ITDepartment extends Department {
   constructor(id: string, private admins: string[]) {
     super(id, "ITTech");
   }
+
+  describe() {
+    console.log("Abstract class example in IT Classes: " + this.id);
+  }
 }
 
 const IT = new ITDepartment("D2", ["Ferhat"]);
+IT.describe();
 
 class accountingDepartment extends Department {
   private lastReport: string;
@@ -177,6 +180,10 @@ class accountingDepartment extends Department {
       throw new Error("Please pass in valid value");
     }
     this.addEmployess(value);
+  }
+
+  describe() {
+    console.log("Abstract class example in AccountingClass : " + this.id);
   }
 
   addEmployess(employee: string) {

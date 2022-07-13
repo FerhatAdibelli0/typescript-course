@@ -109,9 +109,6 @@ class Department {
     static tryStaticly(message) {
         return { msg: message };
     }
-    describe() {
-        console.log(`Department ID: ${this.id} -- Name: ${this.name}`);
-    }
     addEmployess(employee) {
         // this.id="ID2" // You doesnt change it because it is readonly
         this.employees.push(employee);
@@ -127,8 +124,12 @@ class ITDepartment extends Department {
         super(id, "ITTech");
         this.admins = admins;
     }
+    describe() {
+        console.log("Abstract class example in IT Classes: " + this.id);
+    }
 }
 const IT = new ITDepartment("D2", ["Ferhat"]);
+IT.describe();
 class accountingDepartment extends Department {
     constructor(id, reports) {
         super(id, "AccountingDep");
@@ -148,6 +149,9 @@ class accountingDepartment extends Department {
             throw new Error("Please pass in valid value");
         }
         this.addEmployess(value);
+    }
+    describe() {
+        console.log("Abstract class example in AccountingClass : " + this.id);
     }
     addEmployess(employee) {
         this.employees.push(employee);
