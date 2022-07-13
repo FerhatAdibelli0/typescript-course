@@ -123,7 +123,7 @@
 class Department {
   // id: string;
   // name: string;
-  private employees: string[] = [];
+  protected employees: string[] = []; // Protected is used instead of private to make this property inherit from base Class to subclasses
 
   constructor(private readonly id: string, public name: string) {
     // this.id = id;
@@ -158,6 +158,10 @@ class accountingDepartment extends Department {
     super(id, "AccountingDep");
   }
 
+  addEmployess(employee: string) {
+    this.employees.push(employee);
+  }
+
   addReport(text: string) {
     this.reports.push(text);
   }
@@ -173,13 +177,12 @@ const AccountingRep = new accountingDepartment("D3", []);
 //   name: "FERHAT",
 //   describe: test.describe,
 // };
-
 // test.name = "FERHAT"; // I reach name property from outside because it is public
-IT.describe();
-IT.addEmployess("Ferhat");
-IT.addEmployess("Adibelli");
-IT.printEmployeesInformation();
-console.log(AccountingRep);
+
+AccountingRep.describe();
+AccountingRep.addEmployess("Employee");
+AccountingRep.printEmployeesInformation();
 AccountingRep.addReport("There is something wrong");
-AccountingRep.getReport(); 
+AccountingRep.getReport();
+console.log(AccountingRep);
 // IT.employees[2] = "Test"; // Normally we dont want to react this property from outside so we use private keyword
