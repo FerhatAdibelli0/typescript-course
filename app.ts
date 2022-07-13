@@ -1,49 +1,77 @@
-// type AddFunc = (a: number, b: number) => number;
-// interface also can be used for functions but custom type has a bit more common usage because of being shorter
-interface AddFunc {
-  (a: number, b: number): number;
-}
+//----- Intersection Types
 
-const add: AddFunc = (a: number, b: number) => {
-  return a + b;
+type Admin = {
+  name: string;
+  privileges: string[];
 };
 
-interface Named {
-  readonly name?: string; // Make property optional
-}
+type Employess = {
+  name: string;
+  startDate: Date;
+};
 
-// You can extends interfaces not just restricted one but two or more
-interface Grettable extends Named {
-  gretting(phrase: string): void;
-}
+type elevatedEmployee = Admin & Employess; // Can combine them
 
-class Person implements Grettable {
-  name?: string;
-  constructor(n?: string) {
-    if (this.name) {
-      this.name = n;
-    } else {
-      console.log("Hi there");
-    }
-  }
-
-  gretting(phrase: string) {
-    console.log(phrase + this.name);
-  }
-
-  define() {
-    console.log("Defining something");
-  }
-}
-let user: Grettable; // or Person
-user = new Person();
-console.log(user);
-
-const user1: Grettable = {
+const person: elevatedEmployee = {
   name: "Ferhat",
-  gretting(phrase: string) {
-    console.log(phrase + this.name);
-  },
+  privileges: ["create-server"],
+  startDate: new Date(),
 };
+// Using only intersected types when it is used in union types
 
-user1.gretting("Hi there -- I am");
+type Combine = string | number;
+type Numeric = number | boolean;
+type Universal = Combine & Numeric;
+
+//----- Type Guards == This is used union types it could be types such as object,class or basic property
+
+// with typeof
+function Add(a: Combine, b: Combine) {
+  if (typeof a === "string" || typeof b === "string") {
+    return a.toString() + b.toString();
+  }
+  return a + b;
+}
+// with "" in
+type UnknownType = Admin | Employess;
+
+function Test(emp: UnknownType) {
+  if ("privileges" in emp) {
+    return console.log(emp.name + " " + emp.privileges);
+  } else {
+    return console.log(emp.name + " " + emp.startDate);
+  }
+}
+
+Test({ name: "Ferhat", startDate: new Date() });
+
+// with instance of
+
+class Car {
+  define() {
+    console.log("Driving Car...");
+  }
+}
+
+class Truck {
+  define() {
+    console.log("defining Truck...");
+  }
+
+  loading(amount: number) {
+    console.log("Driving Truck loading " + amount);
+  }
+}
+
+function Vehicle(vec: Truck | Car) {
+  if (vec instanceof Truck) {
+    vec.loading(4000);
+    vec.define();
+  } else {
+    vec.define();
+  }
+}
+const v1 = new Car();
+const v2 = new Truck();
+
+Vehicle(v2);
