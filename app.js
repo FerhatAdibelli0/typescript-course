@@ -129,12 +129,28 @@ class accountingDepartment extends Department {
     constructor(id, reports) {
         super(id, "AccountingDep");
         this.reports = reports;
+        this.lastReport = reports[0];
+    }
+    get getLastReport() {
+        if (this.lastReport) {
+            return this.lastReport;
+        }
+        else {
+            throw new Error("No report provided");
+        }
+    }
+    set getLastReport(value) {
+        if (!value) {
+            throw new Error("Please pass in valid value");
+        }
+        this.addEmployess(value);
     }
     addEmployess(employee) {
         this.employees.push(employee);
     }
     addReport(text) {
         this.reports.push(text);
+        this.lastReport = text;
     }
     getReport() {
         console.log(this.reports);
@@ -146,10 +162,12 @@ const AccountingRep = new accountingDepartment("D3", []);
 //   describe: test.describe,
 // };
 // test.name = "FERHAT"; // I reach name property from outside because it is public
+AccountingRep.getLastReport = "Testing set property in class";
 AccountingRep.describe();
 AccountingRep.addEmployess("Employee");
 AccountingRep.printEmployeesInformation();
-AccountingRep.addReport("There is something wrong");
+AccountingRep.addReport("This is Report");
+console.log(AccountingRep.getLastReport);
 AccountingRep.getReport();
 console.log(AccountingRep);
 // IT.employees[2] = "Test"; // Normally we dont want to react this property from outside so we use private keyword
