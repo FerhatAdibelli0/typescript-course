@@ -27,4 +27,5 @@ const user1 = {
         console.log(phrase + this.name);
     },
 };
+console.log("den");
 user1.gretting("Hi there -- I am");
