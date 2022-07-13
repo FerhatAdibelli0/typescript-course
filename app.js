@@ -3,9 +3,13 @@ const add = (a, b) => {
     return a + b;
 };
 class Person {
-    constructor(n, age = 30) {
-        this.age = age;
-        this.name = n;
+    constructor(n) {
+        if (this.name) {
+            this.name = n;
+        }
+        else {
+            console.log("Hi there");
+        }
     }
     gretting(phrase) {
         console.log(phrase + this.name);
@@ -15,7 +19,7 @@ class Person {
     }
 }
 let user; // or Person
-user = new Person("Ferhat");
+user = new Person();
 console.log(user);
 const user1 = {
     name: "Ferhat",

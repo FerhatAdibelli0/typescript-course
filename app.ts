@@ -9,17 +9,22 @@ const add: AddFunc = (a: number, b: number) => {
 };
 
 interface Named {
-  readonly name: string;
+  readonly name?: string; // Make property optional
 }
+
 // You can extends interfaces not just restricted one but two or more
 interface Grettable extends Named {
   gretting(phrase: string): void;
 }
 
 class Person implements Grettable {
-  name: string;
-  constructor(n: string, public age = 30) {
-    this.name = n;
+  name?: string;
+  constructor(n?: string) {
+    if (this.name) {
+      this.name = n;
+    } else {
+      console.log("Hi there");
+    }
   }
 
   gretting(phrase: string) {
@@ -31,7 +36,7 @@ class Person implements Grettable {
   }
 }
 let user: Grettable; // or Person
-user = new Person("Ferhat");
+user = new Person();
 console.log(user);
 
 const user1: Grettable = {
