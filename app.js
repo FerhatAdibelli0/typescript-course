@@ -106,6 +106,9 @@ class Department {
         // this.id = id;
         // this.name = name;
     }
+    static tryStaticly(message) {
+        return { msg: message };
+    }
     describe() {
         console.log(`Department ID: ${this.id} -- Name: ${this.name}`);
     }
@@ -118,6 +121,7 @@ class Department {
         console.log(this.employees);
     }
 }
+Department.ficalYear = 2022;
 class ITDepartment extends Department {
     constructor(id, admins) {
         super(id, "ITTech");
@@ -153,7 +157,7 @@ class accountingDepartment extends Department {
         this.lastReport = text;
     }
     getReport() {
-        console.log(this.reports);
+        console.log(this.reports + " " + Department.ficalYear);
     }
 }
 const AccountingRep = new accountingDepartment("D3", []);
@@ -162,6 +166,8 @@ const AccountingRep = new accountingDepartment("D3", []);
 //   describe: test.describe,
 // };
 // test.name = "FERHAT"; // I reach name property from outside because it is public
+const gretting = Department.tryStaticly("Hello");
+console.log(gretting, Department.ficalYear);
 AccountingRep.getLastReport = "Testing set property in class";
 AccountingRep.describe();
 AccountingRep.addEmployess("Employee");

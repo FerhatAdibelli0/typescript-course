@@ -124,10 +124,14 @@ class Department {
   // id: string;
   // name: string;
   protected employees: string[] = []; // Protected is used instead of private to make this property inherit from base Class to subclasses
-
+  static ficalYear = 2022;
   constructor(private readonly id: string, public name: string) {
     // this.id = id;
     // this.name = name;
+  }
+
+  static tryStaticly(message: string) {
+    return { msg: message };
   }
 
   describe(this: Department) {
@@ -185,7 +189,7 @@ class accountingDepartment extends Department {
   }
 
   getReport() {
-    console.log(this.reports);
+    console.log(this.reports + " " + Department.ficalYear);
   }
 }
 
@@ -196,7 +200,8 @@ const AccountingRep = new accountingDepartment("D3", []);
 //   describe: test.describe,
 // };
 // test.name = "FERHAT"; // I reach name property from outside because it is public
-
+const gretting = Department.tryStaticly("Hello");
+console.log(gretting, Department.ficalYear);
 AccountingRep.getLastReport = "Testing set property in class";
 AccountingRep.describe();
 AccountingRep.addEmployess("Employee");
