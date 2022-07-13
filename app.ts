@@ -1,3 +1,13 @@
+// type AddFunc = (a: number, b: number) => number;
+// interface also can be used for functions but custom type has a bit more common usage because of being shorter
+interface AddFunc {
+  (a: number, b: number): number;
+}
+
+const add: AddFunc = (a: number, b: number) => {
+  return a + b;
+};
+
 interface Named {
   readonly name: string;
 }
