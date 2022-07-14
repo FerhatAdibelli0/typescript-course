@@ -58,3 +58,42 @@ const extractAndConvert = <T, U extends keyof T>(obj: T, key: U) => {
 
 const data = extractAndConvert({ name: "Ferhat" }, "name");
 console.log(data);
+
+// Usage Generics in Class
+
+class DataStorage<T> {
+  private array: T[] = [];
+
+  addItem(item: T) {
+    this.array.push(item);
+  }
+
+  removeItem(item: T) {
+    if (this.array.indexOf(item) === -1) {
+      return;
+    }
+    this.array.splice(this.array.indexOf(item), 1);
+  }
+
+  getItems() {
+    return [...this.array];
+  }
+}
+
+const valStr = new DataStorage<string>();
+const valNumber = new DataStorage<number>();
+
+valStr.addItem("Deneme");
+valStr.addItem("test");
+valStr.removeItem("test");
+
+valNumber.addItem(456);
+valNumber.addItem(424);
+valNumber.addItem(356);
+valNumber.removeItem(424);
+
+const stringStorage = valStr.getItems();
+const numberStorage = valNumber.getItems();
+
+console.log(stringStorage);
+console.log(numberStorage);

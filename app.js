@@ -39,3 +39,34 @@ const extractAndConvert = (obj, key) => {
 };
 const data = extractAndConvert({ name: "Ferhat" }, "name");
 console.log(data);
+// Usage Generics in Class
+class DataStorage {
+    constructor() {
+        this.array = [];
+    }
+    addItem(item) {
+        this.array.push(item);
+    }
+    removeItem(item) {
+        if (this.array.indexOf(item) === -1) {
+            return;
+        }
+        this.array.splice(this.array.indexOf(item), 1);
+    }
+    getItems() {
+        return [...this.array];
+    }
+}
+const valStr = new DataStorage();
+const valNumber = new DataStorage();
+valStr.addItem("Deneme");
+valStr.addItem("test");
+valStr.removeItem("test");
+valNumber.addItem(456);
+valNumber.addItem(424);
+valNumber.addItem(356);
+valNumber.removeItem(424);
+const stringStorage = valStr.getItems();
+const numberStorage = valNumber.getItems();
+console.log(stringStorage);
+console.log(numberStorage);
