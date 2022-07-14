@@ -1,97 +1,17 @@
 "use strict";
-//----- Intersection Types
-var _a;
-const person = {
-    name: "Ferhat",
-    privileges: ["create-server"],
-    startDate: new Date(),
+// -----GENERICS
+// Array and Promise are only built-in generics
+const arr = ["deneme", "test"]; // arr:string[]  these are completely same
+const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("Hello world");
+    }, 5000);
+});
+promise.then((data) => {
+    console.log(data.split(" "));
+});
+// Creating Generic Function
+const merge = (a, b) => {
+    return Object.assign(a, b);
 };
-//----- Type Guards == This is used union types it could be types such as object,class or basic property
-// with typeof
-function Add(a, b) {
-    if (typeof a === "string" || typeof b === "string") {
-        return a.toString() + b.toString();
-    }
-    return a + b;
-}
-function Test(emp) {
-    if ("privileges" in emp) {
-        return console.log(emp.name + " " + emp.privileges);
-    }
-    else {
-        return console.log(emp.name + " " + emp.startDate);
-    }
-}
-Test({ name: "Ferhat", startDate: new Date() });
-// with instance of
-class Car {
-    define() {
-        console.log("Driving Car...");
-    }
-}
-class Truck {
-    define() {
-        console.log("defining Truck...");
-    }
-    loading(amount) {
-        console.log("Driving Truck loading " + amount);
-    }
-}
-function Vehicle(vec) {
-    if (vec instanceof Truck) {
-        vec.loading(4000);
-        vec.define();
-    }
-    else {
-        vec.define();
-    }
-}
-const v1 = new Car();
-const v2 = new Truck();
-Vehicle(v2);
-function findRightAnimal(animal) {
-    let speed;
-    switch (animal.type) {
-        case "bird":
-            speed = animal.flyingSpeed;
-            break;
-        case "horse":
-            speed = animal.runningSpeed;
-            break;
-    }
-    console.log("Moving speed at :" + speed);
-}
-findRightAnimal({ type: "bird", flyingSpeed: 152 });
-// Type Casting
-// const inputData = <HTMLInputElement>document.getElementById("input-data");
-// const inputData = document.getElementById("input-data")! as HTMLInputElement;
-const inputData = document.getElementById("input-data");
-if (inputData) {
-    const data = inputData.value;
-    console.log(data);
-}
-const req = {
-    id: "345345sfgdsgdgdg",
-    email: "test@hotmail.com",
-    age: 25,
-};
-function Plus(a, b) {
-    if (typeof a === "string" || typeof b === "string") {
-        return a.toString() + b.toString();
-    }
-    return a + b;
-}
-const a = Plus("ferhat", "adibelli").slice(-9);
-console.log(a);
-const fetchedData = {
-    name: "Ferhat",
-    age: 30,
-    job: {
-        description: "This is reaaly hard job",
-    },
-};
-console.log((_a = fetchedData === null || fetchedData === void 0 ? void 0 : fetchedData.job) === null || _a === void 0 ? void 0 : _a.title);
-// Nullish Coalescing
-const value = 0;
-console.log(value || "Default");
-console.log(value !== null && value !== void 0 ? value : "Default");
+const mergedData = merge({ name: "ferhat", hobbies: ["sport"] }, { age: 30 });
