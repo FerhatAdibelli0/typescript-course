@@ -144,3 +144,34 @@ function Plus(a: Combined, b: Combined) {
 
 const a = Plus("ferhat", "adibelli").slice(-9);
 console.log(a);
+
+// Optional Chaining
+
+interface Job {
+  title?: string;
+  description: string;
+}
+
+interface Data {
+  name: string;
+  age: number;
+  job?: Job;
+}
+
+const fetchedData: Data = {
+  name: "Ferhat",
+  age: 30,
+  job: {
+    description: "This is reaaly hard job",
+  },
+};
+
+console.log(fetchedData?.job?.title);
+
+// Nullish Coalescing
+
+const value = 0;
+
+console.log(value || "Default");
+console.log(value ?? "Default");
+

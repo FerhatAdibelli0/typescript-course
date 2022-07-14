@@ -1,5 +1,6 @@
 "use strict";
 //----- Intersection Types
+var _a;
 const person = {
     name: "Ferhat",
     privileges: ["create-server"],
@@ -82,3 +83,15 @@ function Plus(a, b) {
 }
 const a = Plus("ferhat", "adibelli").slice(-9);
 console.log(a);
+const fetchedData = {
+    name: "Ferhat",
+    age: 30,
+    job: {
+        description: "This is reaaly hard job",
+    },
+};
+console.log((_a = fetchedData === null || fetchedData === void 0 ? void 0 : fetchedData.job) === null || _a === void 0 ? void 0 : _a.title);
+// Nullish Coalescing
+const value = 0;
+console.log(value || "Default");
+console.log(value !== null && value !== void 0 ? value : "Default");
