@@ -18,3 +18,15 @@ const merge = <T, U>(a: T, b: U) => {
 };
 
 const mergedData = merge({ name: "ferhat", hobbies: ["sport"] }, { age: 30 });
+
+// Constraint
+// We extends generic types to constraint it
+const multiply = <T extends object, U extends object>(a: T, b: U) => {
+  return Object.assign(a, b);
+};
+
+const multipliedData = multiply(
+  { name: "ferhat", hobbies: ["sport"] },
+  { age: 30 }
+);
+console.log(multipliedData);

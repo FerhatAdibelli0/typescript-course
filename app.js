@@ -15,3 +15,10 @@ const merge = (a, b) => {
     return Object.assign(a, b);
 };
 const mergedData = merge({ name: "ferhat", hobbies: ["sport"] }, { age: 30 });
+// Constraint
+// We extends generic types to constraint it
+const multiply = (a, b) => {
+    return Object.assign(a, b);
+};
+const multipliedData = multiply({ name: "ferhat", hobbies: ["sport"] }, { age: 30 });
+console.log(multipliedData);
