@@ -19,7 +19,8 @@ const merge = <T, U>(a: T, b: U) => {
 
 const mergedData = merge({ name: "ferhat", hobbies: ["sport"] }, { age: 30 });
 
-// Constraint
+//Constraint
+
 // We extends generic types to constraint it
 const multiply = <T extends object, U extends object>(a: T, b: U) => {
   return Object.assign(a, b);
@@ -29,4 +30,22 @@ const multipliedData = multiply(
   { name: "ferhat", hobbies: ["sport"] },
   { age: 30 }
 );
-console.log(multipliedData);
+
+// An other example about constraints
+
+interface MoreInfo {
+  length: number;
+}
+
+const countAndDescribe = <T extends MoreInfo>(express: T): [T, string] => {
+  let describtion = "Hello world";
+  if (express.length == 1) {
+    describtion = `there is ${express.length} item`;
+  } else if (express.length > 1) {
+    describtion = `there are ${express.length} items`;
+  }
+  return [express, describtion];
+};
+
+const first = countAndDescribe("Ferhat");
+console.log(first);

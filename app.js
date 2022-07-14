@@ -15,10 +15,21 @@ const merge = (a, b) => {
     return Object.assign(a, b);
 };
 const mergedData = merge({ name: "ferhat", hobbies: ["sport"] }, { age: 30 });
-// Constraint
+//Constraint
 // We extends generic types to constraint it
 const multiply = (a, b) => {
     return Object.assign(a, b);
 };
 const multipliedData = multiply({ name: "ferhat", hobbies: ["sport"] }, { age: 30 });
-console.log(multipliedData);
+const countAndDescribe = (express) => {
+    let describtion = "Hello world";
+    if (express.length == 1) {
+        describtion = `there is ${express.length} item`;
+    }
+    else if (express.length > 1) {
+        describtion = `there are ${express.length} items`;
+    }
+    return [express, describtion];
+};
+const first = countAndDescribe("Ferhat");
+console.log(first);
