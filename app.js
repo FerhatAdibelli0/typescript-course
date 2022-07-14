@@ -40,6 +40,7 @@ const extractAndConvert = (obj, key) => {
 const data = extractAndConvert({ name: "Ferhat" }, "name");
 console.log(data);
 // Usage Generics in Class
+// objects are not used in this kind situations because they are referance type
 class DataStorage {
     constructor() {
         this.array = [];
@@ -70,3 +71,12 @@ const stringStorage = valStr.getItems();
 const numberStorage = valNumber.getItems();
 console.log(stringStorage);
 console.log(numberStorage);
+const createCourse = (title, description, date) => {
+    let course = {};
+    course.title = title;
+    course.description = description;
+    course.completeUntil = date;
+    return course;
+};
+let array = ["Ferhat"];
+//array.push() you can just read but not modify

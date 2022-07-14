@@ -60,8 +60,8 @@ const data = extractAndConvert({ name: "Ferhat" }, "name");
 console.log(data);
 
 // Usage Generics in Class
-
-class DataStorage<T> {
+// objects are not used in this kind situations because they are referance type
+class DataStorage<T extends string | number | boolean> {
   private array: T[] = [];
 
   addItem(item: T) {
@@ -97,3 +97,28 @@ const numberStorage = valNumber.getItems();
 
 console.log(stringStorage);
 console.log(numberStorage);
+
+// Generic Utility Types
+// Partial makes all properties optional
+interface CourseGoal {
+  title: string;
+  description: string;
+  completeUntil: Date;
+}
+
+const createCourse = (
+  title: string,
+  description: string,
+  date: Date
+): CourseGoal => {
+  let course: Partial<CourseGoal> = {};
+
+  course.title = title;
+  course.description = description;
+  course.completeUntil = date;
+
+  return course as CourseGoal;
+};
+
+let array: Readonly<string[]> = ["Ferhat"];
+//array.push() you can just read but not modify
