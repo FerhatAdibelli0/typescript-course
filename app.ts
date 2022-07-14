@@ -111,5 +111,18 @@ findRightAnimal({ type: "bird", flyingSpeed: 152 });
 const inputData = document.getElementById("input-data");
 if (inputData) {
   const data = (inputData as HTMLInputElement).value;
-  console.log(data)
+  console.log(data);
 }
+
+// Indexed Type
+// when you dont know what is there inside of object,use index type
+interface indexedReq {
+  id: string;
+  [key: string]: string | number;
+}
+
+const req: indexedReq = {
+  id: "345345sfgdsgdgdg",
+  email: "test@hotmail.com",
+  age: 25,
+};
