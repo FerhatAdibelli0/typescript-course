@@ -103,3 +103,13 @@ function findRightAnimal(animal: Animal) {
 }
 
 findRightAnimal({ type: "bird", flyingSpeed: 152 });
+
+// Type Casting
+
+// const inputData = <HTMLInputElement>document.getElementById("input-data");
+// const inputData = document.getElementById("input-data")! as HTMLInputElement;
+const inputData = document.getElementById("input-data");
+if (inputData) {
+  const data = (inputData as HTMLInputElement).value;
+  console.log(data)
+}
