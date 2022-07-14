@@ -33,3 +33,9 @@ const countAndDescribe = (express) => {
 };
 const first = countAndDescribe("Ferhat");
 console.log(first);
+// Keyof Constraints
+const extractAndConvert = (obj, key) => {
+    return "Value :" + obj[key];
+};
+const data = extractAndConvert({ name: "Ferhat" }, "name");
+console.log(data);
