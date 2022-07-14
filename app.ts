@@ -126,3 +126,21 @@ const req: indexedReq = {
   email: "test@hotmail.com",
   age: 25,
 };
+
+// Function Overloads
+type Combined = string | number;
+
+function Plus(a: number, b: number): number; // we use this overload functions to make sure TS what type will return
+function Plus(a: string, b: string): string;
+function Plus(a: string, b: number): string;
+function Plus(a: number, b: string): string;
+
+function Plus(a: Combined, b: Combined) {
+  if (typeof a === "string" || typeof b === "string") {
+    return a.toString() + b.toString();
+  }
+  return a + b;
+}
+
+const a = Plus("ferhat", "adibelli").slice(-9);
+console.log(a);

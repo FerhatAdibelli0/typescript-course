@@ -69,3 +69,16 @@ if (inputData) {
     const data = inputData.value;
     console.log(data);
 }
+const req = {
+    id: "345345sfgdsgdgdg",
+    email: "test@hotmail.com",
+    age: 25,
+};
+function Plus(a, b) {
+    if (typeof a === "string" || typeof b === "string") {
+        return a.toString() + b.toString();
+    }
+    return a + b;
+}
+const a = Plus("ferhat", "adibelli").slice(-9);
+console.log(a);
