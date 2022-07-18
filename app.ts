@@ -19,7 +19,7 @@ const merge = <T, U>(a: T, b: U) => {
   return Object.assign(a, b);
 };
 
-const mergedData = merge({ name: "ferhat", hobbies: ["sport","swiming"] }, { age: 35 });
+const mergedData = merge({ name: "ferhat", hobbies: ["sport","swiming","diving"] }, { age: 38 });
 
 //Constraint
 
