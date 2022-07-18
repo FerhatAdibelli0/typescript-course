@@ -1,14 +1,16 @@
 // -----GENERICS
 // Array and Promise are only built-in generics
 const arr: Array<string> = ["deneme", "test"]; // arr:string[]  these are completely same
-const promise: Promise<string> = new Promise((resolve, reject) => {
+const promise: Promise<Array<string>> = new Promise((resolve, reject) => {
   setTimeout(() => {
-    resolve("Hello world");
+    resolve(["Hello world"]);
   }, 5000);
 });
 
 promise.then((data) => {
-  console.log(data.split(" "));
+  data.forEach((item) => {
+    console.log(item);
+  });
 });
 
 // Creating Generic Function
@@ -17,7 +19,7 @@ const merge = <T, U>(a: T, b: U) => {
   return Object.assign(a, b);
 };
 
-const mergedData = merge({ name: "ferhat", hobbies: ["sport"] }, { age: 30 });
+const mergedData = merge({ name: "ferhat", hobbies: ["sport","swiming"] }, { age: 35 });
 
 //Constraint
 
