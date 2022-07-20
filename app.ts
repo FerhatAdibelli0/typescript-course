@@ -29,7 +29,7 @@ const multiply = <T extends object, U extends object>(a: T, b: U) => {
 };
 
 const multipliedData = multiply(
-  { name: "ferhat", hobbies: ["sport","diving"] },
+  { name: "ferhat", hobbies: ["sport","diving","hikinig"] },
   { age: 30 }
 );
 
