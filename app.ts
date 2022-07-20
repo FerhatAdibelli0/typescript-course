@@ -51,6 +51,8 @@ const countAndDescribe = <T extends MoreInfo>(express: T): [T, string] => {
 
 const first = countAndDescribe("Ferhat");
 console.log(first);
+console.log("testing");
+
 
 // Keyof Constraints
 
