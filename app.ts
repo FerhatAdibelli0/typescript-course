@@ -126,3 +126,34 @@ const createCourse = (
 
 let array: Readonly<string[]> = ["Ferhat"];
 //array.push() you can just read but not modify
+
+
+export type BaseQueryFn<
+  Args = any,
+  Result = unknown,
+  Error = unknown,
+  DefinitionExtraOptions = {},
+  Meta = {}
+> = (
+  args: Args,
+  api: BaseQueryApi,
+  extraOptions: DefinitionExtraOptions
+) => Promise<QueryReturnValue<Result, Error, Meta>>;
+
+export interface BaseQueryApi {
+  signal: AbortSignal
+  dispatch: any
+  getState: () => unknown
+}
+
+export type QueryReturnValue<T = unknown, E = unknown, M = unknown> =
+  | {
+      error: E
+      data?: undefined
+      meta?: M
+    }
+  | {
+      error?: undefined
+      data: T
+      meta?: M
+    }

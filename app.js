@@ -1,26 +1,27 @@
-"use strict";
 // -----GENERICS
 // Array and Promise are only built-in generics
 const arr = ["deneme", "test"]; // arr:string[]  these are completely same
 const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
-        resolve("Hello world");
+        resolve(["Hello world"]);
     }, 5000);
 });
 promise.then((data) => {
-    console.log(data.split(" "));
+    data.forEach((item) => {
+        console.log(item);
+    });
 });
 // Creating Generic Function
 const merge = (a, b) => {
     return Object.assign(a, b);
 };
-const mergedData = merge({ name: "ferhat", hobbies: ["sport"] }, { age: 30 });
+const mergedData = merge({ name: "ferhat", hobbies: ["sport", "swiming", "diving"] }, { age: 38 });
 //Constraint
 // We extends generic types to constraint it
 const multiply = (a, b) => {
     return Object.assign(a, b);
 };
-const multipliedData = multiply({ name: "ferhat", hobbies: ["sport"] }, { age: 30 });
+const multipliedData = multiply({ name: "ferhat", hobbies: ["sport", "diving", "hikinig"] }, { age: 30 });
 const countAndDescribe = (express) => {
     let describtion = "Hello world";
     if (express.length == 1) {
@@ -33,6 +34,7 @@ const countAndDescribe = (express) => {
 };
 const first = countAndDescribe("Ferhat");
 console.log(first);
+console.log("testing");
 // Keyof Constraints
 const extractAndConvert = (obj, key) => {
     return "Value :" + obj[key];
@@ -79,4 +81,4 @@ const createCourse = (title, description, date) => {
     return course;
 };
 let array = ["Ferhat"];
-//array.push() you can just read but not modify
+export {};
