@@ -19,7 +19,10 @@ const merge = <T, U>(a: T, b: U) => {
   return Object.assign(a, b);
 };
 
-const mergedData = merge({ name: "ferhat", hobbies: ["sport","swiming","diving"] }, { age: 38 });
+const mergedData = merge(
+  { name: "ferhat", hobbies: ["sport", "swiming", "diving"] },
+  { age: 38 }
+);
 
 //Constraint
 
@@ -29,7 +32,7 @@ const multiply = <T extends object, U extends object>(a: T, b: U) => {
 };
 
 const multipliedData = multiply(
-  { name: "ferhat", hobbies: ["sport","diving","hikinig"] },
+  { name: "ferhat", hobbies: ["sport", "diving", "hikinig"] },
   { age: 30 }
 );
 
@@ -52,7 +55,6 @@ const countAndDescribe = <T extends MoreInfo>(express: T): [T, string] => {
 const first = countAndDescribe("Ferhat");
 console.log(first);
 console.log("testing");
-
 
 // Keyof Constraints
 
@@ -127,7 +129,6 @@ const createCourse = (
 let array: Readonly<string[]> = ["Ferhat"];
 //array.push() you can just read but not modify
 
-
 export type BaseQueryFn<
   Args = any,
   Result = unknown,
@@ -141,21 +142,19 @@ export type BaseQueryFn<
 ) => Promise<QueryReturnValue<Result, Error, Meta>>;
 
 export interface BaseQueryApi {
-  signal: AbortSignal
-  dispatch: any
-  getState: () => unknown
+  signal: AbortSignal;
+  dispatch: any;
+  getState: () => unknown;
 }
 
 export type QueryReturnValue<T = unknown, E = unknown, M = unknown> =
   | {
-      error: E
-      data?: undefined
-      meta?: M
+      error: E;
+      data?: undefined;
+      meta?: M;
     }
   | {
-      error?: undefined
-      data: T
-      meta?: M
-    }
-
-    console.log("denneme")
+      error?: undefined;
+      data: T;
+      meta?: M;
+    };

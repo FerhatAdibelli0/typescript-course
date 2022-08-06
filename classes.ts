@@ -217,3 +217,5 @@ console.log(AccountingRep.getLastReport);
 AccountingRep.getReport();
 console.log(AccountingRep);
 // IT.employees[2] = "Test"; // Normally we dont want to react this property from outside so we use private keyword
+
+//All of them are best practices
