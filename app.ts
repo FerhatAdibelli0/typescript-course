@@ -158,5 +158,4 @@ export type QueryReturnValue<T = unknown, E = unknown, M = unknown> =
       data: T;
       meta?: M;
     };
-
-// they re all best practices!
+ console.log("Test it")
