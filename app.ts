@@ -158,4 +158,4 @@ export type QueryReturnValue<T = unknown, E = unknown, M = unknown> =
       data: T;
       meta?: M;
     };
-console.log("deneme")
+console.log("ferhat")
