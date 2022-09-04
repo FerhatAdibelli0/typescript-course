@@ -175,3 +175,5 @@ const value = 0;
 console.log(value || "Default");
 console.log(value ?? "Default");
 
+console.log("test")
+
